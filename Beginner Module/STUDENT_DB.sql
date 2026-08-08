@@ -1,0 +1,34 @@
+CREATE DATABASE STUDENT_DB1;
+
+USE STUDENT_DB1;
+
+CREATE TABLE STUDENT_1(
+		NAME VARCHAR(100),
+        AGE INT,
+        DOB DATE,
+        ID INT,
+        ADDRESS VARCHAR(250)
+        );
+        
+INSERT INTO STUDENT_1(NAME, AGE, DOB, ID, ADDRESS) VALUES
+			('vicky', '20','2006-06-03', '1', 'chennai'),
+            ('virat', '20', '2006-01-05','2', 'delhi'),
+            ('dhoni', '21', '2005-07-07', '3', 'pune'),
+            ('rohit', '21',  '2005-04-05','4', 'mumbai');
+
+INSERT INTO STUDENT_1 VALUES ('faf','21','2005-01-04', '5', 'chennai');
+
+SELECT * FROM STUDENT_1;
+
+SELECT DISTINCT ADDRESS FROM STUDENT_1;
+
+SELECT COUNT(ID) FROM STUDENT_1;
+
+SELECT COUNT(DISTINCT AGE) FROM STUDENT_1;
+
+CREATE TABLE STUDENT_2 AS
+SELECT ID, NAME, AGE, ADDRESS 
+FROM STUDENT_1;
+
+SELECT * FROM STUDENT_2;
+            
