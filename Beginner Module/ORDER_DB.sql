@@ -1,0 +1,77 @@
+CREATE DATABASE ORDER_DB;
+
+USE ORDER_DB;
+
+CREATE TABLE CUSTOMER (
+		CUST_ID INT,
+        CUST_NAME VARCHAR(250),
+        CUST_ADDRESS VARCHAR(100)
+        );
+
+CREATE TABLE ORDER_1 (
+		ORDER_ID INT,
+        CUST_ID INT,
+        ORDER_PRODUCT VARCHAR(100),
+        ORDER_PRICE INT
+        );
+        
+INSERT INTO CUSTOMER (CUST_ID, CUST_NAME, CUST_ADDRESS) 
+VALUES  ('1', 'THOR', 'CHENNAI'),
+		('2', 'TONY', 'CHENNAI'),
+        ('3', 'CHRIS', 'KERELA'),
+        ('4', 'OLSEN', 'KERELA'),
+        ('5', 'TOM', 'MUMBAI'),
+        ('6', 'LOKI', 'MUMBAI') ;
+               
+               
+INSERT INTO ORDER_1 (ORDER_ID, CUST_ID, ORDER_PRODUCT, ORDER_PRICE)
+VALUES  ('111', '1', 'TV', '25000'),
+		('222', '2', 'AC', '45000'),
+        ('333', '3', 'FRIDGE', '15000'),
+        ('444', '3', 'OVEN', '35000'),
+        ('555', '1', 'PS', '65000'),
+        ('666', '2', 'PHONE', '55000') ;
+        
+        
+SELECT C.CUST_ID,
+	   C.CUST_NAME,
+       O.ORDER_PRODUCT,
+       O.ORDER_PRICE,
+       C.CUST_ADDRESS
+FROM CUSTOMER AS C
+INNER JOIN ORDER_1 AS O
+ON C.CUST_ID = O.CUST_ID;
+
+
+SELECT 
+	   C.CUST_NAME,
+       O.ORDER_PRODUCT,
+       O.ORDER_PRICE
+FROM CUSTOMER AS C
+LEFT JOIN ORDER_1 AS O
+ON C.CUST_ID = O.CUST_ID;
+
+
+SELECT C.CUST_ID,
+	   C.CUST_NAME,
+       O.ORDER_PRODUCT,
+       O.ORDER_PRICE,
+       C.CUST_ADDRESS
+FROM CUSTOMER AS C
+RIGHT JOIN ORDER_1 AS O
+ON C.CUST_ID = O.CUST_ID;
+
+SELECT C.CUST_ID,
+	   C.CUST_NAME,
+       O.ORDER_PRODUCT,
+       O.ORDER_PRICE,
+       C.CUST_ADDRESS
+FROM CUSTOMER AS C
+CROSS JOIN ORDER_1 AS O
+ON C.CUST_ID = O.CUST_ID;
+
+        
+     
+      
+		
+        
